@@ -1,8 +1,17 @@
+import React, { useEffect } from 'react'
 import Header from './components/header';
-import './App.css';
 import ListItem from './components/list-Item';
+import api from './services/api'
+
+import './App.css';
+
 
 function App() {
+  useEffect(()=>{
+    api.get('/users').then(response => {
+      console.log(response)
+    })
+  },[])
   return (
     <div className="App">
       <Header title="Todo list"/>
